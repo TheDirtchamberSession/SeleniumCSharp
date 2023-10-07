@@ -12,7 +12,10 @@ namespace TestProject1.utility
         [SetUp]
         public void StartBrowser()
         {
-            driver = new ChromeDriver();
+            
+            var options = new ChromeOptions();
+            options.AddArgument("--headless=new");
+            driver = new ChromeDriver(options);
             wait = new WebDriverWait(driver, new TimeSpan(0, 0, 30));
             baseURL = "https://www.beograd.rs/";
             driver.Navigate().GoToUrl(baseURL);
