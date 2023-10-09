@@ -7,7 +7,10 @@
     &lt;ProjectFile&gt;1450B886-1B56-44EA-A57C-420FFCD8E38C/d:account_page/f:LogInTest.cs&lt;/ProjectFile&gt;
     &lt;TestAncestor&gt;
       &lt;TestId&gt;NUnit3x::1450B886-1B56-44EA-A57C-420FFCD8E38C::net7.0::TestProject1.account_page.Checkou.LogInValidAccountTest&lt;/TestId&gt;
+      &lt;TestId&gt;NUnit3x::1450B886-1B56-44EA-A57C-420FFCD8E38C::net7.0::TestProject1.utility.ExampleTests.MyTest&lt;/TestId&gt;
     &lt;/TestAncestor&gt;
     &lt;ProjectFile&gt;1450B886-1B56-44EA-A57C-420FFCD8E38C/f:UnitTest1.cs&lt;/ProjectFile&gt;
+    &lt;ProjectFile&gt;1450B886-1B56-44EA-A57C-420FFCD8E38C/d:utility/f:ExampleTests.cs&lt;/ProjectFile&gt;
   &lt;/Or&gt;
-&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestRunner/HangingTestRunnerResponse/@EntryValue">KillProcess</s:String></wpf:ResourceDictionary>

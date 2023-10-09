@@ -1,3 +1,5 @@
+using System.Drawing;
+using OpenQA.Selenium;
 using TestProject1.Fun;
 using TestProject1.POM;
 using TestProject1.utility;
@@ -13,5 +15,6 @@ public class LogInTest : BaseTest
         FunLogIn.clickOnEnglishBtn(driver);
         driver.FindElement(LogInPageObject.EnglishSwitchBtn).Click();
         Thread.Sleep(1000);
+
     }
 }
