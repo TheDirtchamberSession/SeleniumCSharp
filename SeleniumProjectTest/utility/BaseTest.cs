@@ -2,7 +2,7 @@ using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
-
+using System.Collections.Generic;
 namespace TestProject1.utility;
 
 public class BaseTest
@@ -11,18 +11,21 @@ public class BaseTest
     public WebDriverWait wait;
     private string baseURL;
     private VideoRecorder recorder;
-
-        
+    protected Dictionary<string, string> EnvData;
+    
     [SetUp]
     public void StartBrowser()
     {
+        //Set Up
         var options = new ChromeOptions();
         options.AddArgument("--headless=new");
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, new TimeSpan(0, 0, 30));
-        baseURL = "https://www.beograd.rs/";
+        baseURL = "https://www.saucedemo.com/";
         driver.Navigate().GoToUrl(baseURL);
         driver.Manage().Window.Maximize();
+        // // Load the .env file for every test
+        EnvData = EnvReader.Load(".env");
         // Start recording
         recorder = new VideoRecorder();
         Directory.CreateDirectory("./"); // Ensure the directory exists

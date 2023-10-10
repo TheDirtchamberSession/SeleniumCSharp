@@ -2,23 +2,21 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
 using TestProject1.POM;
+using TestProject1.utility;
 
 namespace TestProject1.Fun;
 
-public class FunLogIn
+public static class FunLogIn
 {
-    public static void clickOnEnglishBtn(WebDriver driver){
-        
-        driver.FindElement(LogInPageObject.EnglishSwitchBtn).Click();
-        
-}
-    
+   
     public static void LogInAccount (WebDriver driver, WebDriverWait wait){
-        
-        driver.FindElement(By.XPath("sadasdasd")).Click();
-        driver.FindElement(LogInPageObject.EnglishSwitchBtn).SendKeys("sdasdasd");
-        driver.FindElement(LogInPageObject.EnglishSwitchBtn).SendKeys("sdasdasd");
-        wait.Until(ExpectedConditions.VisibilityOfAllElementsLocatedBy(By.XPath("asd")));
+       
+        var envData = EnvReader.Load(".env");
+
+        driver.FindElement(LogInPageObject.UserNameField).SendKeys(envData["USERNAME"]);
+        driver.FindElement(LogInPageObject.UserPasswordField).SendKeys(envData["PASSWORD"]);
+        driver.FindElement(LogInPageObject.LogInButton).Click();
+        wait.Until(ExpectedConditions.VisibilityOfAllElementsLocatedBy(By.XPath("//button[contains(text(),'Open Menu')]")));
 
     }
 }
