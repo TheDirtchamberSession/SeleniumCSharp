@@ -18,9 +18,9 @@ public class BaseTest
     {
         //Set Up
         var options = new ChromeOptions();
-        options.AddArgument("--headless=new");
-        driver = new ChromeDriver();
-        wait = new WebDriverWait(driver, new TimeSpan(0, 0, 30));
+        options.AddArguments("--no-sandbox", "--disable-dev-shm-usage", "--start-maximized");
+        driver = new ChromeDriver(options);
+        wait = new WebDriverWait(driver, new TimeSpan(0, 0, 10));
         baseURL = "https://www.saucedemo.com/";
         driver.Navigate().GoToUrl(baseURL);
         driver.Manage().Window.Maximize();

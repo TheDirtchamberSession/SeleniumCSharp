@@ -13,6 +13,7 @@ public class LogInTest : BaseTest
         Console.WriteLine("Hello First Test");
         FunLogIn.LogInAccount(driver, wait);
         Thread.Sleep(2000);
+        Console.WriteLine("-------------------- First Test Pass ----------------------");
 
     }
 }

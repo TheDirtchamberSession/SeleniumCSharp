@@ -42,6 +42,10 @@
               "target": "Package",
               "version": "[5.0.0, )"
             },
+            "MSTest.TestAdapter": {
+              "target": "Package",
+              "version": "[3.1.1, )"
+            },
             "MSTest.TestFramework": {
               "target": "Package",
               "version": "[3.1.1, )"
@@ -53,10 +57,6 @@
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[17.7.1, )"
-            },
-            "Microsoft.VisualStudio.UnitTesting": {
-              "target": "Package",
-              "version": "[11.0.50727.1, )"
             },
             "NUnit": {
               "target": "Package",
