@@ -2,7 +2,6 @@ using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Support.UI;
-using System.Collections.Generic;
 namespace TestProject1.utility;
 
 public class BaseTest
@@ -11,15 +10,15 @@ public class BaseTest
     public WebDriverWait wait;
     private string baseURL;
     private VideoRecorder recorder;
-    protected Dictionary<string, string> EnvData;
+    public static Dictionary<string, string> EnvData;
     
     [SetUp]
     public void StartBrowser()
     {
         //Set Up
         var options = new ChromeOptions();
-        options.AddArguments("--no-sandbox", "--disable-dev-shm-usage", "--start-maximized");
-        driver = new ChromeDriver();
+        options.AddArguments("--no-sandbox","--headless=new","--disable-dev-shm-usage", "--disable-gpu", "--start-maximized");
+        driver = new ChromeDriver(options);
         wait = new WebDriverWait(driver, new TimeSpan(0, 0, 10));
         baseURL = "https://traksys-test.orcabio.com/ts";
         driver.Navigate().GoToUrl(baseURL);

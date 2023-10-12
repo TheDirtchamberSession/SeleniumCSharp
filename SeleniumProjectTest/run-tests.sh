@@ -5,7 +5,7 @@ Xvfb :99 -ac &
 export DISPLAY=:99
 
 # Start recording with ffmpeg (recording will start in the background)
-ffmpeg -video_size 1366x768 -framerate 25 -f x11grab -i :99.0 output.mp4 &
+ffmpeg -video_size 1366x768 -framerate 25 -f x11grab -i :99.0 output.mp4 > /app/ffmpeg.log 2>&1 &
 
 # Optionally, start VNC server if you want to watch in real-time
 # x11vnc -forever -usepw -create -display :99 &
