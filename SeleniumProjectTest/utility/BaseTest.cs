@@ -19,9 +19,9 @@ public class BaseTest
         //Set Up
         var options = new ChromeOptions();
         options.AddArguments("--no-sandbox", "--disable-dev-shm-usage", "--start-maximized");
-        driver = new ChromeDriver(options);
+        driver = new ChromeDriver();
         wait = new WebDriverWait(driver, new TimeSpan(0, 0, 10));
-        baseURL = "https://www.saucedemo.com/";
+        baseURL = "https://traksys-test.orcabio.com/ts";
         driver.Navigate().GoToUrl(baseURL);
         driver.Manage().Window.Maximize();
         // // Load the .env file for every test

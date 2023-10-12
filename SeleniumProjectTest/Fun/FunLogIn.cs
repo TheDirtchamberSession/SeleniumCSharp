@@ -16,7 +16,7 @@ public static class FunLogIn
         driver.FindElement(LogInPageObject.UserNameField).SendKeys(envData["USERNAME"]);
         driver.FindElement(LogInPageObject.UserPasswordField).SendKeys(envData["PASSWORD"]);
         driver.FindElement(LogInPageObject.LogInButton).Click();
-        wait.Until(ExpectedConditions.VisibilityOfAllElementsLocatedBy(By.XPath("//button[contains(text(),'Open Menu')]")));
+        wait.Until(ExpectedConditions.VisibilityOfAllElementsLocatedBy(By.Id("pagetitle")));
 
     }
 }
