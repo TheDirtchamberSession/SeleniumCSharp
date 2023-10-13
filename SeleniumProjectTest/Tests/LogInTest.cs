@@ -1,4 +1,3 @@
-using OpenQA.Selenium;
 using TestProject1.Fun;
 using TestProject1.utility;
 
@@ -12,8 +11,8 @@ public class LogInTest : BaseTest
   
         Console.WriteLine("Hello First Test");
         FunLogIn.LogInAccount(driver, wait);
-        Thread.Sleep(2000);
+        Thread.Sleep(1000);
         Console.WriteLine("-------------------- First Test Pass ----------------------");
-
+        
     }
 }

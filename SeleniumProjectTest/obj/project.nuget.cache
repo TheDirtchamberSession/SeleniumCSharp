@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "/UNC9H10noKYmGkLKc4Z7UUs20giYMm5hVh8kOAB73ulXYleceFDk28HM53aY0hLSBzlfiUsxSxneBxLEfI0lQ==",
+  "dgSpecHash": "9DHmeDalT3uWcT/IMTM1jI2hq7hS71NbhFQJQ9m+QMCg7+A8WD4Cgykpqt3aMJMmOpe/jYXxT5ru5HpzN/RDGg==",
   "success": true,
   "projectFilePath": "/home/mrazomor/RiderProjects/Solution1/SeleniumProjectTest/SeleniumProjectTest.csproj",
   "expectedPackageFiles": [
@@ -33,9 +33,10 @@
     "/home/mrazomor/.nuget/packages/screencapture.net/2.0.2/screencapture.net.2.0.2.nupkg.sha512",
     "/home/mrazomor/.nuget/packages/screencapturer/3.0.1/screencapturer.3.0.1.nupkg.sha512",
     "/home/mrazomor/.nuget/packages/selenium.support/4.13.1/selenium.support.4.13.1.nupkg.sha512",
-    "/home/mrazomor/.nuget/packages/selenium.webdriver/4.13.1/selenium.webdriver.4.13.1.nupkg.sha512",
+    "/home/mrazomor/.nuget/packages/selenium.webdriver/4.14.0/selenium.webdriver.4.14.0.nupkg.sha512",
     "/home/mrazomor/.nuget/packages/selenium.webdriver.chromedriver/118.0.5993.3200-beta/selenium.webdriver.chromedriver.118.0.5993.3200-beta.nupkg.sha512",
     "/home/mrazomor/.nuget/packages/seleniumextras.waithelpers/1.0.2/seleniumextras.waithelpers.1.0.2.nupkg.sha512",
+    "/home/mrazomor/.nuget/packages/seleniummanager.core/1.3.1/seleniummanager.core.1.3.1.nupkg.sha512",
     "/home/mrazomor/.nuget/packages/sharpdx/4.2.0/sharpdx.4.2.0.nupkg.sha512",
     "/home/mrazomor/.nuget/packages/sharpdx.direct3d11/4.2.0/sharpdx.direct3d11.4.2.0.nupkg.sha512",
     "/home/mrazomor/.nuget/packages/sharpdx.dxgi/4.2.0/sharpdx.dxgi.4.2.0.nupkg.sha512",

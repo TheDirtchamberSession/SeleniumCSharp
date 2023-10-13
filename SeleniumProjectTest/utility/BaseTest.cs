@@ -11,42 +11,59 @@ public class BaseTest
     private string baseURL;
     private VideoRecorder recorder;
     public static Dictionary<string, string> EnvData;
-    
+
     [SetUp]
     public void StartBrowser()
     {
         //Set Up
         var options = new ChromeOptions();
-        options.AddArguments("--no-sandbox","--headless=new","--disable-dev-shm-usage", "--disable-gpu", "--start-maximized");
-        driver = new ChromeDriver(options);
+        options.AddArguments("--no-sandbox", "--headless=new", "--disable-dev-shm-usage", "--disable-gpu",
+            "--start-maximized");
+        driver = new ChromeDriver();
         wait = new WebDriverWait(driver, new TimeSpan(0, 0, 10));
-        baseURL = "https://traksys-test.orcabio.com/ts";
+        baseURL = "https://traksys-test.orcabio.com/ts/";
         driver.Navigate().GoToUrl(baseURL);
         driver.Manage().Window.Maximize();
         // // Load the .env file for every test
         EnvData = EnvReader.Load(".env");
         // Start recording
         recorder = new VideoRecorder();
-        Directory.CreateDirectory("./"); // Ensure the directory exists
-        recorder.StartRecording(Path.Combine("./", $"{TestContext.CurrentContext.Test.Name}_{DateTime.Now:yyyyMMdd_HHmmss}.mp4"));
+        Directory.CreateDirectory("./VideoTest"); // Ensure the directory exists
+        recorder.StartRecording(Path.Combine("./VideoTest",
+            $"{TestContext.CurrentContext.Test.Name}_{DateTime.Now:yyyyMMdd_HHmmss}.mp4"));
     }
-        
+
     [TearDown]
     public void CloseBrowser()
     {
+        string directoryPath;
+
         if (TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Failed)
         {
-            var screenshot = ((ITakesScreenshot)driver).GetScreenshot();
-                
-            // Ensure the directory exists
-            Directory.CreateDirectory("./");
-                
-            var screenshotFileName = Path.Combine("./", $"{TestContext.CurrentContext.Test.Name}_{DateTime.Now:yyyyMMdd_HHmmss}.png");
-            screenshot.SaveAsFile(screenshotFileName, ScreenshotImageFormat.Png);
-            Console.WriteLine($"Screenshot saved to: {screenshotFileName}");
+            directoryPath = "./FailedTestScreenShot";
         }
+        else if (TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Passed)
+        {
+            directoryPath = "./PassedTestScreenShot";
+        }
+        else
+        {
+            return;
+        }
+
+        var screenshot = ((ITakesScreenshot)driver).GetScreenshot();
+
+        if (!Directory.Exists(directoryPath))
+        {
+            Directory.CreateDirectory(directoryPath);
+        }
+
+        var screenshotFileName = Path.Combine(directoryPath,
+            $"{TestContext.CurrentContext.Test.Name}_{DateTime.Now:yyyyMMdd_HHmmss}.png");
+        screenshot.SaveAsFile(screenshotFileName, ScreenshotImageFormat.Png);
+        Console.WriteLine($"Screenshot saved to: {screenshotFileName}");
         
-        driver.Quit();
+       driver.Quit();
         // Stop recording
         recorder.StopRecording();
         
