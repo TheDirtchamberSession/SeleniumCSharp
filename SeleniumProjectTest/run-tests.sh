@@ -3,15 +3,13 @@
 # Set the resolution for Xvfb and ffmpeg
 RESOLUTION="1280x1024"
 
-# Check and kill existing Xvfb process
-if ps aux | grep "Xvfb :99" | grep -v grep; then
-  echo "Killing existing Xvfb process..."
-  killall Xvfb
+# Check and kill existing Xvfb process on display :99
+existing_pid=$(pgrep -f "Xvfb :99")
+if [[ ! -z "$existing_pid" ]]; then
+  echo "Killing existing Xvfb process on display :99..."
+  kill "$existing_pid"
   sleep 2
 fi
-
-# Cleanup any lingering Xvfb related files
-rm -f /tmp/.X99-lock
 
 # Start Xvfb with the specified resolution
 echo "Starting Xvfb on display :99 with resolution $RESOLUTION..."
@@ -19,8 +17,7 @@ Xvfb :99 -screen 0 ${RESOLUTION}x24 -ac &
 sleep 2
 
 # Verify that Xvfb is running
-echo "Checking Xvfb status:"
-if ! ps aux | grep "Xvfb :99" | grep -v grep; then
+if ! pgrep -f "Xvfb :99"; then
   echo "Error: Xvfb is not running."
   exit 1
 fi
@@ -34,12 +31,9 @@ fi
 # Give some time for Xvfb to fully initialize
 sleep 10
 
-# Set DISPLAY variable
-export DISPLAY=:99
-
-# Start recording with ffmpeg with an explicit resolution
+# Start recording with ffmpeg using the same resolution
 echo "Starting ffmpeg recording..."
-ffmpeg -video_size 1280x1024 -framerate 25 -f x11grab -i :99.0 /app/output.mp4 > /app/ffmpeg.log 2>&1 &
+DISPLAY=:99 ffmpeg -video_size $RESOLUTION -framerate 25 -f x11grab -i :99.0 /app/output.mp4 > /app/ffmpeg.log 2>&1 &
 
 # Allow ffmpeg to initialize
 sleep 10
@@ -49,7 +43,7 @@ echo "Running dotnet tests..."
 dotnet test
 
 # Kill the ffmpeg process after tests are done
-killall ffmpeg || echo "ffmpeg was not running."
+pkill -f "ffmpeg.*x11grab.*:99.0" || echo "ffmpeg was not running."
 
 # Print the ffmpeg log for diagnostics
 cat /app/ffmpeg.log

@@ -3,7 +3,7 @@ FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build-env
 
 # Install Chrome and required utilities
 RUN apt-get update && \
-    apt-get install -y wget unzip gnupg xvfb x11vnc ffmpeg && \
+    apt-get install -y wget unzip gnupg xvfb x11vnc ffmpeg psmisc procps && \
     wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - && \
     echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list && \
     apt-get update && \
