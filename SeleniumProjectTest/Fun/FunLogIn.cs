@@ -6,7 +6,7 @@ using TestProject1.utility;
 
 namespace TestProject1.Fun;
 
-public class FunLogIn: BaseTest
+public class FunLogIn:BaseTestHub
 {
    
     public static void LogInAccount (WebDriver driver, WebDriverWait wait){

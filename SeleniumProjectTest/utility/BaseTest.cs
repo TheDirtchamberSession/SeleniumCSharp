@@ -16,11 +16,12 @@ public class BaseTest
     [SetUp]
     public void StartBrowser()
     {
+        
         //Set Up
         var options = new ChromeOptions();
         options.AddArguments("--no-sandbox", "--headless=new", "--disable-dev-shm-usage", "--disable-gpu",
             "--start-maximized");
-        driver = new ChromeDriver();
+        driver = new ChromeDriver(options);
         wait = new WebDriverWait(driver, new TimeSpan(0, 0, 10));
         baseURL = "https://traksys-test.orcabio.com/ts/";
         driver.Navigate().GoToUrl(baseURL);
