@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "/xYXtEhsHT6imOhMTsqlWunPA9LLB6YnQFY8IWlpwdsvII7XuQVpTBypmVSwgTELecgnOj+gjNzMC1QONzIekQ==",
+  "dgSpecHash": "BW0GZUOz9NRomJoJzKah33Prd7TVXV8spIp2Zt/pIkfu7vGKmVSaBONMraLI4/qABQxTtMa7wCrTKh5P+NYQyw==",
   "success": true,
   "projectFilePath": "/home/mrazomor/RiderProjects/Solution1/ApiTesting/ApiTesting.csproj",
   "expectedPackageFiles": [
@@ -23,7 +23,8 @@
     "/home/mrazomor/.nuget/packages/selenium.webdriver/4.14.0/selenium.webdriver.4.14.0.nupkg.sha512",
     "/home/mrazomor/.nuget/packages/seleniummanager.core/1.3.1/seleniummanager.core.1.3.1.nupkg.sha512",
     "/home/mrazomor/.nuget/packages/system.drawing.common/7.0.0/system.drawing.common.7.0.0.nupkg.sha512",
-    "/home/mrazomor/.nuget/packages/system.reflection.metadata/1.6.0/system.reflection.metadata.1.6.0.nupkg.sha512"
+    "/home/mrazomor/.nuget/packages/system.reflection.metadata/1.6.0/system.reflection.metadata.1.6.0.nupkg.sha512",
+    "/home/mrazomor/.nuget/packages/zelenium.core/1.0.0/zelenium.core.1.0.0.nupkg.sha512"
   ],
   "logs": []
 }
