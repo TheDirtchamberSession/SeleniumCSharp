@@ -16,7 +16,12 @@ docker pull elgalu/selenium
 Run Zelenium
 docker run --rm -ti --name zalenium -p 4444:4444 -v /var/run/docker.sock:/var/run/docker.sock -v /tmp/videos:/home/seluser/videos --privileged dosel/zalenium start
 
-3. Live Preview on:
+The part -v /tmp/videos:/home/seluser/videos maps the /tmp/videos directory on your host machine to the /home/seluser/videos directory inside the Zalenium container.
+So, after the test is completed:
+Locate the Video on Your Machine:
+You should be able to find the video files in the /tmp/videos directory on your machine.
+
+4. Live Preview on:
 http://localhost:4444/grid/admin/live
 
 ![image](https://github.com/TheDirtchamberSession/SeleniumCSharp/assets/33664649/e98842f6-46cf-4159-8a97-f6d7c3398038)
@@ -38,4 +43,3 @@ or
 dotnet vstest SeleniumProjectTest.dll
 
 Note: All Package Reference is in the file - SeleniumProjectTest.csproj
-
