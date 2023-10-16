@@ -11,6 +11,7 @@ public class BaseTest
     private string baseURL;
     private VideoRecorder recorder;
     public static Dictionary<string, string> EnvData;
+    
 
     [SetUp]
     public void StartBrowser()

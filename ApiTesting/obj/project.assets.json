@@ -537,6 +537,20 @@
             "related": ".xml"
           }
         }
+      },
+      "Zelenium.Core/1.0.0": {
+        "type": "package",
+        "dependencies": {
+          "NUnit": "3.13.3",
+          "Selenium.Support": "4.12.4",
+          "Selenium.WebDriver": "4.12.4"
+        },
+        "compile": {
+          "lib/net6.0/Zelenium.Core.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0/Zelenium.Core.dll": {}
+        }
       }
     }
   },
@@ -1466,6 +1480,20 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "Zelenium.Core/1.0.0": {
+      "sha512": "qVU1gw9jPo9AJo5DvhepMffVmbFdofzEMZcDAwf/O4/yeDtGwYUM54UBcyN9f1Ye41UC0y/m9brlawi+8Zq8Ug==",
+      "type": "package",
+      "path": "zelenium.core/1.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "README.md",
+        "lib/net6.0/Zelenium.Core.dll",
+        "zelenium.core.1.0.0.nupkg.sha512",
+        "zelenium.core.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
@@ -1479,6 +1507,7 @@
       "Selenium.Support >= 4.13.1",
       "Selenium.WebDriver >= 4.14.0",
       "SeleniumManager.Core >= 1.3.1",
+      "Zelenium.Core >= 1.0.0",
       "coverlet.collector >= 3.2.0"
     ]
   },
@@ -1554,6 +1583,10 @@
           "SeleniumManager.Core": {
             "target": "Package",
             "version": "[1.3.1, )"
+          },
+          "Zelenium.Core": {
+            "target": "Package",
+            "version": "[1.0.0, )"
           },
           "coverlet.collector": {
             "target": "Package",
