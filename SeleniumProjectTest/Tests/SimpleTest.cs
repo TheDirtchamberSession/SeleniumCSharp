@@ -1,23 +1,18 @@
 
+using OpenQA.Selenium;
 using TestProject1.utility;
 
-namespace TestProject1.Tests
+public class SimpleTest: BaseTestHub
 {
-    public class SimpleTest : BaseTestHub
+    
+    [Test]
+    public void NavigateToGoogleAndCheckTitle()
+    
     {
-
-            [Test]
-            public void NavigateToGoogleAndCheckTitle()
-            {
-                driver.Navigate().GoToUrl("https://www.google.com");
-                Thread.Sleep(3000);
-        
-            }
-        
-            [TearDown]
-            public void TearDown()
-            {
-                driver.Quit();
-            }
-        }
+        driver.FindElement(By.Id("user-name")).SendKeys("standard_user");
+        driver.FindElement(By.Id("password")).SendKeys("secret_sauce");
+        driver.FindElement(By.Id("login-button")).Click();
+        Thread.Sleep(3000);
+       
     }
+}
