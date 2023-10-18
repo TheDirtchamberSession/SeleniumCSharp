@@ -62,3 +62,4 @@ TestResults/
 # Log - Env
 /log/
 /.env
+/ENV/
