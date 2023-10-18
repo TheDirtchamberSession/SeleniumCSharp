@@ -10,6 +10,7 @@ Steps:
 1. First do a pull for zelenium and elgalu/selenium
 
 docker pull dosel/zalenium
+
 docker pull elgalu/selenium
 
 2.

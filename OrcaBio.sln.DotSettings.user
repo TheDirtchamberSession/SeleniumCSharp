@@ -1,8 +1,0 @@
-﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=36e710b7_002D91f1_002D4500_002Db66d_002D7ca810a3df46/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="All tests from 01.Search Account.cs" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
-  &lt;ProjectFolder&gt;1450B886-1B56-44EA-A57C-420FFCD8E38C/d:account_page&lt;/ProjectFolder&gt;
-&lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=dc85773f_002Dffdb_002D48cd_002D87b0_002D8d03ae630b94/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from 01.Search Account.cs #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
-  &lt;ProjectFile&gt;1450B886-1B56-44EA-A57C-420FFCD8E38C/d:Tests/f:LogInTest.cs&lt;/ProjectFile&gt;
-&lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Housekeeping/UnitTestingMru/UnitTestRunner/HangingTestRunnerResponse/@EntryValue">KillProcess</s:String></wpf:ResourceDictionary>
