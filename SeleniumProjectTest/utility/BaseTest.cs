@@ -21,13 +21,13 @@ public class BaseTest
         var options = new ChromeOptions();
         options.AddArguments("--no-sandbox", "--headless=new", "--disable-dev-shm-usage", "--disable-gpu",
             "--start-maximized");
-        driver = new ChromeDriver(options);
+        driver = new ChromeDriver();
         wait = new WebDriverWait(driver, new TimeSpan(0, 0, 10));
         baseURL = "https://traksys-test.orcabio.com/ts/";
         driver.Navigate().GoToUrl(baseURL);
         driver.Manage().Window.Maximize();
         // // Load the .env file for every test
-        EnvData = EnvReader.Load(".env");
+        EnvData = EnvLoader.Load();
         // Start recording
         recorder = new VideoRecorder();
         Directory.CreateDirectory("./VideoTest"); // Ensure the directory exists

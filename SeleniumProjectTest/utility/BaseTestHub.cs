@@ -2,7 +2,6 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.UI;
-
 namespace TestProject1.utility
 {
     public class BaseTestHub
@@ -10,9 +9,9 @@ namespace TestProject1.utility
         protected WebDriver driver;
         public WebDriverWait wait;
         private string baseURL;
-       // private VideoRecorder recorder;
+        // private VideoRecorder recorder;
         public static Dictionary<string, string> EnvData;
-        private readonly string SeleniumHubUrl = "http://localhost:4444/wd/hub"; // Pointing to Zalenium Grid
+        private readonly string SeleniumHubUrl = "http://localhost:4444";
 
         [SetUp]
         public void StartBrowser()
@@ -21,13 +20,13 @@ namespace TestProject1.utility
             driver = new RemoteWebDriver(new Uri(SeleniumHubUrl), chromeOptions.ToCapabilities(), TimeSpan.FromSeconds(10));  // Set command timeout
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);  // Set implicit wait
             wait = new WebDriverWait(driver, new TimeSpan(0, 0, 10));
-            baseURL = "https://www.saucedemo.com/v1/";
+            baseURL = "https://traksys-test.orcabio.com/ts";
             driver.Navigate().GoToUrl(baseURL);
             driver.Manage().Window.Maximize();
 
             // Load the .env file for every test
-            EnvData = EnvReader.Load(".env");
-
+            EnvData = EnvLoader.Load();
+            
         }
 
         [TearDown]

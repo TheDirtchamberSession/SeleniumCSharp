@@ -1,5 +1,4 @@
 
-using OpenQA.Selenium;
 using TestProject1.Fun;
 using TestProject1.utility;
 namespace TestProject1.Tests;

@@ -9,10 +9,10 @@ public class LogInTest : BaseTest
     public void LogInValidAccountTest()
     {
   
-        Console.WriteLine("Hello First Test");
+        Console.WriteLine("Hello Orca First Test");
         FunLogIn.LogInAccount(driver, wait);
         Thread.Sleep(1000);
-        Console.WriteLine("-------------------- First Test Pass ----------------------");
+        Console.WriteLine("-------------------- First Orca Test Pass ----------------------");
         
     }
 }

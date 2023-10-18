@@ -59,5 +59,7 @@ ScaffoldingReadMe.txt
 # Selenium: Reports
 TestResults/
 
-# Log
+# Log - Env
 /log/
+/.env
+/ENV/.env
