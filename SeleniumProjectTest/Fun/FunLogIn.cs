@@ -16,6 +16,6 @@ public class FunLogIn:BaseTest
         driver.FindElement(LogInPageObject.UserPasswordField).SendKeys(EnvData["PASSWORD"]);
         driver.FindElement(LogInPageObject.LogInButton).Click();
         wait.Until(ExpectedConditions.VisibilityOfAllElementsLocatedBy(By.Id("pagetitle")));
-
+        
     }
 }
