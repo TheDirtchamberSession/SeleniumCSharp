@@ -1,2 +1,64 @@
-# Editor-based HTTP Client requests
-http-client.private.env.json
+# Compiled binary files
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Packages
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases
+*.log
+*.sql
+*.sqlite
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Rider IDE
+.idea/
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artificts/
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]og[sS]/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Selenium: Reports
+TestResults/
+
+# Log - Env
+/log/
+/.env
