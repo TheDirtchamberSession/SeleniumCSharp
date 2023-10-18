@@ -1,17 +1,19 @@
 
 using OpenQA.Selenium;
+using TestProject1.Fun;
 using TestProject1.utility;
-
+namespace TestProject1.Tests;
 public class SimpleTest: BaseTestHub
 {
     
     [Test]
-    public void NavigateToGoogleAndCheckTitle()
+    public void NavigateToWebAppAndLogIn()
     
     {
-        driver.FindElement(By.Id("user-name")).SendKeys("standard_user");
-        driver.FindElement(By.Id("password")).SendKeys("secret_sauce");
-        driver.FindElement(By.Id("login-button")).Click();
+        Console.WriteLine("Hello First Test");
+        FunLogIn.LogInAccount(driver, wait);
+        Thread.Sleep(1000);
+        Console.WriteLine("-------------------- First Test Pass ----------------------");
         Thread.Sleep(3000);
        
     }

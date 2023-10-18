@@ -1,4 +1,3 @@
-using NUnit.Framework.Interfaces;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Remote;
@@ -11,7 +10,7 @@ namespace TestProject1.utility
         protected WebDriver driver;
         public WebDriverWait wait;
         private string baseURL;
-        private VideoRecorder recorder;
+       // private VideoRecorder recorder;
         public static Dictionary<string, string> EnvData;
         private readonly string SeleniumHubUrl = "http://localhost:4444/wd/hub"; // Pointing to Zalenium Grid
 
@@ -27,7 +26,7 @@ namespace TestProject1.utility
             driver.Manage().Window.Maximize();
 
             // Load the .env file for every test
-            //EnvData = EnvReader.Load(".env");
+            EnvData = EnvReader.Load(".env");
 
         }
 
