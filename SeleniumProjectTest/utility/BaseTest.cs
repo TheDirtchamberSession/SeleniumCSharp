@@ -16,60 +16,92 @@ public class BaseTest
     [SetUp]
     public void StartBrowser()
     {
-        
-        //Set Up
+        // Set Up
         var options = new ChromeOptions();
         options.AddArguments("--no-sandbox", "--headless=new", "--disable-dev-shm-usage", "--disable-gpu",
             "--start-maximized");
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, new TimeSpan(0, 0, 10));
-        baseURL = "https://traksys-test.orcabio.com/ts/";
+        baseURL = "https://www.saucedemo.com/";
         driver.Navigate().GoToUrl(baseURL);
         driver.Manage().Window.Maximize();
-        // // Load the .env file for every test
+        
+        // Load the .env file for every test
         EnvData = EnvLoader.Load();
+        
+        // Create video directory in TestResults
+        string videoPath = Path.Combine(
+            Directory.GetCurrentDirectory(),
+            "..",
+            "..",
+            "TestResults",
+            "VideoTest"
+        );
+        
+        Directory.CreateDirectory(videoPath);
+        
         // Start recording
         recorder = new VideoRecorder();
-        Directory.CreateDirectory("./VideoTest"); // Ensure the directory exists
-        recorder.StartRecording(Path.Combine("./VideoTest",
+        recorder.StartRecording(Path.Combine(videoPath,
             $"{TestContext.CurrentContext.Test.Name}_{DateTime.Now:yyyyMMdd_HHmmss}.mp4"));
     }
-
+    
     [TearDown]
     public void CloseBrowser()
     {
-        string directoryPath;
+        // Base directory for test results
+        string baseTestResultsPath = Path.Combine(
+            Directory.GetCurrentDirectory(),
+            "..",
+            "..",
+            "TestResults"
+        );
 
-        if (TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Failed)
-        {
-            directoryPath = "./FailedTestScreenShot";
-        }
-        else if (TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Passed)
-        {
-            directoryPath = "./PassedTestScreenShot";
-        }
-        else
+        // Early return if test status is neither Failed nor Passed
+        if (TestContext.CurrentContext.Result.Outcome.Status != TestStatus.Failed && 
+            TestContext.CurrentContext.Result.Outcome.Status != TestStatus.Passed)
         {
             return;
         }
 
-        var screenshot = ((ITakesScreenshot)driver).GetScreenshot();
-
-        if (!Directory.Exists(directoryPath))
+        string directoryPath;
+        if (TestContext.CurrentContext.Result.Outcome.Status == TestStatus.Failed)
         {
-            Directory.CreateDirectory(directoryPath);
+            directoryPath = Path.Combine(baseTestResultsPath, "FailedTestScreenShot");
+        }
+        else
+        {
+            directoryPath = Path.Combine(baseTestResultsPath, "PassedTestScreenShot");
         }
 
-        var screenshotFileName = Path.Combine(directoryPath,
-            $"{TestContext.CurrentContext.Test.Name}_{DateTime.Now:yyyyMMdd_HHmmss}.png");
-        screenshot.SaveAsFile(screenshotFileName, ScreenshotImageFormat.Png);
-        Console.WriteLine($"Screenshot saved to: {screenshotFileName}");
+        try
+        {
+            var screenshot = ((ITakesScreenshot)driver).GetScreenshot();
+
+            if (!Directory.Exists(directoryPath))
+            {
+                Directory.CreateDirectory(directoryPath);
+            }
+
+            var screenshotFileName = Path.Combine(directoryPath,
+                $"{TestContext.CurrentContext.Test.Name}_{DateTime.Now:yyyyMMdd_HHmmss}.png");
         
-       driver.Quit();
-        // Stop recording
-        recorder.StopRecording();
+            // Using the non-deprecated method
+            screenshot.SaveAsFile(screenshotFileName);
+            Console.WriteLine($"Screenshot saved to: {screenshotFileName}");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Failed to save screenshot: {ex.Message}");
+        }
+        finally
+        {
+            driver.Quit();
+            // Stop recording
+            recorder.StopRecording();
         
-        // Print ffmpeg error logs if any
-        Console.WriteLine(recorder.GetErrorLog());
+            // Print ffmpeg error logs if any
+            Console.WriteLine(recorder.GetErrorLog());
+        }
     }
 }

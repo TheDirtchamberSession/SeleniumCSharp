@@ -7,12 +7,12 @@ public class LogInTest : BaseTest
 {
     [Test]
     public void LogInValidAccountTest()
+    
     {
   
-        Console.WriteLine("Hello Orca First Test");
+        Console.WriteLine("-----------------Hello First Test--------------------------");
         FunLogIn.LogInAccount(driver, wait);
-        Thread.Sleep(1000);
-        Console.WriteLine("-------------------- First Orca Test Pass ----------------------");
+        Console.WriteLine("-------------------- First Test Pass ----------------------");
         
     }
 }

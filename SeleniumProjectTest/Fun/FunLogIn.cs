@@ -12,10 +12,11 @@ public class FunLogIn:BaseTest
     public static void LogInAccount (WebDriver driver, WebDriverWait wait){
        
         //var envData = EnvReader.Load(".env");
+        wait.Until(ExpectedConditions.VisibilityOfAllElementsLocatedBy(LogInPageObject.UserNameField));
         driver.FindElement(LogInPageObject.UserNameField).SendKeys(EnvData["USERNAME"]);
         driver.FindElement(LogInPageObject.UserPasswordField).SendKeys(EnvData["PASSWORD"]);
         driver.FindElement(LogInPageObject.LogInButton).Click();
-        wait.Until(ExpectedConditions.VisibilityOfAllElementsLocatedBy(By.Id("pagetitle")));
+        wait.Until(ExpectedConditions.VisibilityOfAllElementsLocatedBy(By.XPath("//span[contains(text(),'Products')]")));
         
     }
 }

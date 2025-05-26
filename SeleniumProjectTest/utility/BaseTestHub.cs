@@ -20,7 +20,7 @@ namespace TestProject1.utility
             driver = new RemoteWebDriver(new Uri(SeleniumHubUrl), chromeOptions.ToCapabilities(), TimeSpan.FromSeconds(10));  // Set command timeout
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);  // Set implicit wait
             wait = new WebDriverWait(driver, new TimeSpan(0, 0, 10));
-            baseURL = "https://traksys-test.orcabio.com/ts";
+            baseURL = "https://www.saucedemo.com/";
             driver.Navigate().GoToUrl(baseURL);
             driver.Manage().Window.Maximize();
 
